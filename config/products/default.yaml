@@ -1,0 +1,12 @@
+- id: laptop
+  name: Laptop
+  unit_price_cents: 500000
+  currency: PLN
+- id: mouse
+  name: Mouse
+  unit_price_cents: 15000
+  currency: PLN
+- id: keyboard
+  name: Keyboard
+  unit_price_cents: 30000
+  currency: PLN

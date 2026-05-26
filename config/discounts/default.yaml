@@ -1,0 +1,7 @@
+customer_discount_bps:
+  regular: 0
+  premium: 1000
+quantity_discount_bps:
+  - min_quantity: 10
+    discount_bps: 500
+max_discount_bps: 2000

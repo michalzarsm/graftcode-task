@@ -1,0 +1,45 @@
+[project]
+name = "graftcode-task"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.1",
+    "ruff>=0.15.14",
+    "ty>=0.0.38",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "order_service",
+    "pricing_service",
+]
+
+[tool.ruff]
+line-length = 88
+src = [
+    "order_service/src",
+    "pricing_service/src",
+]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ty.environment]
+python-version = "3.13"
+root = [
+    "order_service/src",
+    "pricing_service/src",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "order_service/src",
+    "pricing_service/src",
+]

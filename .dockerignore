@@ -1,0 +1,37 @@
+# Git metadata
+.git
+
+# Python-generated files
+**/__pycache__
+**/*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Dependency-generated files
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv
+
+# Environment variables
+.env
+.env.*
+
+# Editors
+.vscode/
+.cursor/
+.zed/
+.idea/
+
+# Agents
+.agents/
+.codex/
+.claude/
+
+# Build context exclusions
+docs
+uv.lock

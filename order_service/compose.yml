@@ -1,0 +1,28 @@
+name: order-service
+
+services:
+    order-gateway:
+        build:
+            context: ..
+            dockerfile: order_service/Dockerfile
+            args:
+                GRAFTCODE_PRICING_INDEX_URL: "${GRAFTCODE_PRICING_INDEX_URL:-https://grft.dev/simple/019e4f4d-35e9-79f9-a0b1-8a68a7ea9a56__graftcode}"
+                GRAFTCODE_PRICING_PACKAGE: "${GRAFTCODE_PRICING_PACKAGE:-graft-pypi-pricing_service_ebifbb==0.2.0}"
+        image: order-service-py:test
+        pull_policy: build
+        env_file:
+            - ../.env
+        ports:
+            - "${ORDER_GATEWAY_PORT:-8090}:80"
+            - "${ORDER_VISION_PORT:-8091}:81"
+        restart: unless-stopped
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    "wget -q --spider http://127.0.0.1:81/GV || exit 1",
+                ]
+            interval: 10s
+            timeout: 3s
+            retries: 6
+            start_period: 10s
